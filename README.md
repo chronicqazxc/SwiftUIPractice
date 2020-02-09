@@ -4,4 +4,4 @@
 
 Simple project for SwfitUI syntax.
 
-![](/.assets/symboles.gif)
+![](/.assets/symbols.gif)
