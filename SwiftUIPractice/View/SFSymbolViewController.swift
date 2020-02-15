@@ -1,5 +1,5 @@
 //
-//  AvatarViewController.swift
+//  SFSymbolViewController.swift
 //  SwiftUIPractice
 //
 //  Created by Wayne Hsiao on 2020/2/4.
@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol AvatarViewControllerDelegate {
+protocol SFSymbolViewControllerDelegate {
     func imageViewController() -> UIViewController
 }
 
-class AvatarViewController: UIViewController {
+class SFSymbolViewController: UIViewController {
     
-    var delegate: AvatarViewControllerDelegate?
+    var delegate: SFSymbolViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,10 +34,10 @@ class AvatarViewController: UIViewController {
         imageView.view.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
     }
     
-    static func initFromXib(delegate: AvatarViewControllerDelegate) -> AvatarViewController {
-        let avatarViewController = AvatarViewController(nibName: "AvatarViewController", bundle: nil)
-        avatarViewController.delegate = delegate
-        return avatarViewController
+    static func initFromXib(delegate: SFSymbolViewControllerDelegate) -> SFSymbolViewController {
+        let sfSymbolViewController = SFSymbolViewController(nibName: "SFSymbolViewController", bundle: nil)
+        sfSymbolViewController.delegate = delegate
+        return sfSymbolViewController
     }
 
 }

@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		B06ECA9823EB0589002BFA9D /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06ECA9723EB0589002BFA9D /* SettingView.swift */; };
 		B06ECA9A23EC0406002BFA9D /* BackgroundColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = B06ECA9923EC0406002BFA9D /* BackgroundColors.swift */; };
-		B086A5A523E96C4700E2A748 /* AvatarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B086A5A323E96C4700E2A748 /* AvatarViewController.swift */; };
-		B086A5A623E96C4700E2A748 /* AvatarViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B086A5A423E96C4700E2A748 /* AvatarViewController.xib */; };
-		B086A5A823E96D7100E2A748 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B086A5A723E96D7100E2A748 /* AvatarView.swift */; };
+		B086A5A523E96C4700E2A748 /* SFSymbolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B086A5A323E96C4700E2A748 /* SFSymbolViewController.swift */; };
+		B086A5A623E96C4700E2A748 /* SFSymbolViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B086A5A423E96C4700E2A748 /* SFSymbolViewController.xib */; };
+		B086A5A823E96D7100E2A748 /* SFSymbolView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B086A5A723E96D7100E2A748 /* SFSymbolView.swift */; };
 		B0870E8523F8277A00700EDB /* Shake.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0870E8423F8277A00700EDB /* Shake.swift */; };
 		B08843A423EEFBAE00E8483C /* Categories.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08843A323EEFBAE00E8483C /* Categories.swift */; };
 		B08AF03B23EC51F200794422 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = B08AF03A23EC51F200794422 /* UserData.swift */; };
@@ -47,9 +47,9 @@
 		B040A67923EFE9EF0044A212 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B06ECA9723EB0589002BFA9D /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		B06ECA9923EC0406002BFA9D /* BackgroundColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColors.swift; sourceTree = "<group>"; };
-		B086A5A323E96C4700E2A748 /* AvatarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarViewController.swift; sourceTree = "<group>"; };
-		B086A5A423E96C4700E2A748 /* AvatarViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AvatarViewController.xib; sourceTree = "<group>"; };
-		B086A5A723E96D7100E2A748 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		B086A5A323E96C4700E2A748 /* SFSymbolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolViewController.swift; sourceTree = "<group>"; };
+		B086A5A423E96C4700E2A748 /* SFSymbolViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SFSymbolViewController.xib; sourceTree = "<group>"; };
+		B086A5A723E96D7100E2A748 /* SFSymbolView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SFSymbolView.swift; sourceTree = "<group>"; };
 		B0870E8423F8277A00700EDB /* Shake.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shake.swift; sourceTree = "<group>"; };
 		B08843A323EEFBAE00E8483C /* Categories.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Categories.swift; sourceTree = "<group>"; };
 		B08AF03A23EC51F200794422 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
@@ -111,9 +111,9 @@
 				B0BA46F123E8899A00901DF7 /* ContentView.swift */,
 				B06ECA9723EB0589002BFA9D /* SettingView.swift */,
 				B08AF03E23EDB23100794422 /* ProfileView.swift */,
-				B086A5A723E96D7100E2A748 /* AvatarView.swift */,
-				B086A5A323E96C4700E2A748 /* AvatarViewController.swift */,
-				B086A5A423E96C4700E2A748 /* AvatarViewController.xib */,
+				B086A5A723E96D7100E2A748 /* SFSymbolView.swift */,
+				B086A5A323E96C4700E2A748 /* SFSymbolViewController.swift */,
+				B086A5A423E96C4700E2A748 /* SFSymbolViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -288,7 +288,7 @@
 				B0BA46FA23E8899E00901DF7 /* LaunchScreen.storyboard in Resources */,
 				B0BA46F723E8899E00901DF7 /* Preview Assets.xcassets in Resources */,
 				B0BA46F423E8899E00901DF7 /* Assets.xcassets in Resources */,
-				B086A5A623E96C4700E2A748 /* AvatarViewController.xib in Resources */,
+				B086A5A623E96C4700E2A748 /* SFSymbolViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,8 +321,8 @@
 				B0BA46F223E8899A00901DF7 /* ContentView.swift in Sources */,
 				B06ECA9823EB0589002BFA9D /* SettingView.swift in Sources */,
 				B08843A423EEFBAE00E8483C /* Categories.swift in Sources */,
-				B086A5A823E96D7100E2A748 /* AvatarView.swift in Sources */,
-				B086A5A523E96C4700E2A748 /* AvatarViewController.swift in Sources */,
+				B086A5A823E96D7100E2A748 /* SFSymbolView.swift in Sources */,
+				B086A5A523E96C4700E2A748 /* SFSymbolViewController.swift in Sources */,
 				B06ECA9A23EC0406002BFA9D /* BackgroundColors.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

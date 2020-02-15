@@ -69,8 +69,8 @@ struct ContentView: View {
                         
                         Section(header: Text("Symbols")) {
                             
-                            ForEach(systemNames, id: \.self) { (item) -> NavigationLink<RowView, AvatarView> in
-                                NavigationLink(destination: AvatarView(id: item)) {
+                            ForEach(systemNames, id: \.self) { (item) -> NavigationLink<RowView, SFSymbolView> in
+                                NavigationLink(destination: SFSymbolView(id: item)) {
                                     RowView(name: item)
                                 }
                             }

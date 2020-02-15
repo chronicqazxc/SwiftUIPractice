@@ -1,5 +1,5 @@
 //
-//  AvatarView.swift
+//  SFSymbolView.swift
 //  SwiftUIPractice
 //
 //  Created by Wayne Hsiao on 2020/2/4.
@@ -10,24 +10,24 @@ import SwiftUI
 import MapKit
 import UIKit
 
-struct AvatarView: UIViewControllerRepresentable, Identifiable {
+struct SFSymbolView: UIViewControllerRepresentable, Identifiable {
     var id: String
 
-    typealias UIViewControllerType = AvatarViewController
+    typealias UIViewControllerType = SFSymbolViewController
     
-    func makeUIViewController(context: UIViewControllerRepresentableContext<AvatarView>) -> AvatarViewController {
-        AvatarViewController.initFromXib(delegate: context.coordinator)
+    func makeUIViewController(context: UIViewControllerRepresentableContext<SFSymbolView>) -> SFSymbolViewController {
+        SFSymbolViewController.initFromXib(delegate: context.coordinator)
     }
     
-    func updateUIViewController(_ uiViewController: AvatarViewController, context: UIViewControllerRepresentableContext<AvatarView>) {
+    func updateUIViewController(_ uiViewController: SFSymbolViewController, context: UIViewControllerRepresentableContext<SFSymbolView>) {
         
     }
     
-    func makeCoordinator() -> AvatarView.Coordinator {
+    func makeCoordinator() -> SFSymbolView.Coordinator {
         return Coordinator(imageName: id)
     }
     
-    class Coordinator: NSObject, AvatarViewControllerDelegate {
+    class Coordinator: NSObject, SFSymbolViewControllerDelegate {
         let imageName: String
         
         init(imageName: String) {
@@ -44,8 +44,8 @@ struct AvatarView: UIViewControllerRepresentable, Identifiable {
     }
 }
 
-struct AvatarView_Previews: PreviewProvider {
+struct SFSymbolView_Previews: PreviewProvider {
     static var previews: some View {
-        AvatarView(id: "test")
+        SFSymbolView(id: "test")
     }
 }
