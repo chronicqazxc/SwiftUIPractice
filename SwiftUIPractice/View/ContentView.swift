@@ -93,7 +93,7 @@ struct ContentView: View {
 struct ShakeImageView: View {
     var imageName: String
     @GestureState fileprivate var isDetectingLongPress = false
-    @State var shack = false
+    @State fileprivate var shack = false
     
     var body: some View {
 
@@ -124,7 +124,7 @@ struct ShakeImageView: View {
 }
 
 struct ProfilePresentingButton: View {
-    @State var present: Bool = false
+    @State fileprivate var present: Bool = false
     @EnvironmentObject var userData: UserData
     
     var body: some View {
