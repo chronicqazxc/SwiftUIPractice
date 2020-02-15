@@ -30,73 +30,115 @@ struct ContentView: View {
     
     var body: some View {
         NavigationView {
-            ZStack {
-                themeColor
-                VStack(spacing: 0) {
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        HStack(alignment: .center) {
-                            ForEach(categories, id: \.self) { (id) -> Button<Text> in
-                                
-                                let text = id == self.selectedCategory ? Text(id).bold().font(.title) : Text(id)
-                                
-                                return Button(action: {
-                                    self.selectedCategory = id
-                                }) {
-                                    text
-                                }
+            VStack(spacing: 0) {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(alignment: .center) {
+                        ForEach(categories, id: \.self) { (id) -> Button<Text> in
+                            
+                            let text = id == self.selectedCategory ? Text(id).bold().font(.title) : Text(id)
+                            
+                            return Button(action: {
+                                self.selectedCategory = id
+                            }) {
+                                text
                             }
-                            .padding(.horizontal)
-                            .frame(height: 40)
                         }
+                        .padding(.horizontal)
+                        .frame(height: 40)
                     }
-                    .foregroundColor(.white)
-                    
-                    SettingView(showContent: $showContent,
-                                backgroundColor: $themeColor)
-                        .frame(height: 140)
-                    
-                    if showContent {
-                        List {
-                            Section(header: Text("Category")) {
-                                HStack {
-                                    Spacer()
-                                    Image(systemName: self.systemNames.first!)
-                                    .resizable()
-                                    .scaledToFit()
-                                    .accessibility(label: Text(systemNames.first!))
+                }
+                .foregroundColor(.white)
+
+                SettingView(showContent: $showContent,
+                            backgroundColor: $themeColor)
+                    .frame(height: 140)
+                
+                
+                if showContent {
+                    List {
+                        
+                        Section(header: Text("Category")) {
+                            HStack {
+                                Spacer()
+                                ShakeImageView(imageName: self.systemNames.first!)
                                     .padding()
                                     .frame(height: 100, alignment: .center)
-                                    Spacer()
-                                }
+                                Spacer()
                             }
+                        }
+                        
+                        Section(header: Text("Symbols")) {
                             
-                            Section(header: Text("Symbols")) {
-                                
-                                ForEach(systemNames, id: \.self) { (item) -> NavigationLink<RowView, AvatarView> in
-                                    NavigationLink(destination: AvatarView(id: item)) {
-                                        RowView(name: item)
-                                    }
+                            ForEach(systemNames, id: \.self) { (item) -> NavigationLink<RowView, AvatarView> in
+                                NavigationLink(destination: AvatarView(id: item)) {
+                                    RowView(name: item)
                                 }
                             }
                         }
-                    } else {
-                        Spacer()
-                            .layoutPriority(0)
                     }
+                    .transition(.move(edge: .bottom))
+                } else {
+                    Spacer()
+                        .layoutPriority(0)
                 }
-                .sheet(isPresented: $toggleProfileOn) {
-                    ProfileView()
-                        .environmentObject(self.userData)
-                }
-                .navigationBarTitle(Text("\(userData.name)"))
-                .navigationBarItems(trailing: Button(action: { self.toggleProfileOn.toggle() }) {
-                    Image(systemName: "person.crop.circle")
-                        .imageScale(.large)
-                        .accessibility(label: Text("User Profile"))
-                        .padding()
-                })
-                    .foregroundColor(themeColor)
             }
+            .background(themeColor)
+            .navigationBarTitle(Text("\(userData.name)"))
+            .navigationBarItems(trailing: ProfilePresentingButton())
+            .foregroundColor(themeColor)
+        }
+    }
+}
+
+struct ShakeImageView: View {
+    var imageName: String
+    @GestureState fileprivate var isDetectingLongPress = false
+    @State var shack = false
+    
+    var body: some View {
+
+        let press = LongPressGesture()
+            .updating($isDetectingLongPress) { (currentState, gestureState, transaction) in
+                gestureState = currentState
+                
+        }
+        .onChanged { (_) in
+            withAnimation {
+                self.shack = self.isDetectingLongPress
+            }
+        }
+        .onEnded { (_) in
+            self.shack = self.isDetectingLongPress
+        }
+        
+        return Image(systemName: imageName)
+            .resizable()
+            .scaledToFit()
+            .accessibility(label: Text(imageName))
+            .padding()
+            .frame(height: 100, alignment: .center)
+            .gesture(press)
+            .modifier(Shake(animatableData: CGFloat( shack ? 1 : 0)))
+        
+    }
+}
+
+struct ProfilePresentingButton: View {
+    @State var present: Bool = false
+    @EnvironmentObject var userData: UserData
+    
+    var body: some View {
+        Button(action: {
+            self.present.toggle()
+        }) {
+            Image(systemName: "person.crop.circle")
+                .imageScale(.large)
+                .accessibility(label: Text("User Profile"))
+                .padding()
+        }
+        .sheet(isPresented: $present) {
+            ProfileView()
+                .environmentObject(self.userData)
         }
     }
 }

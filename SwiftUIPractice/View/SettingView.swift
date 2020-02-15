@@ -19,7 +19,7 @@ struct SettingView: View {
         ZStack {
             Form {
                 Section(header: Text("Display")){
-                    Toggle(isOn: $showContent) {
+                    Toggle(isOn: $showContent.animation(.spring(dampingFraction: 0.5))) {
                         Text("Show Content")
                     }
                     
@@ -28,7 +28,7 @@ struct SettingView: View {
                             .frame(width: 80)
                         Divider()
                         
-                        Picker("Background Color", selection: $backgroundColor) {
+                        Picker("Background Color", selection: $backgroundColor.animation()) {
                             ForEach(BackgroundColors, id: \.self) { color in
                                 Text(DescriptionFromColor(color))
                             }
