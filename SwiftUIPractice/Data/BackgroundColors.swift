@@ -9,7 +9,7 @@
 import Foundation
 import SwiftUI
 
-let BackgroundColors = [
+let ThemeColors = [
     Color.blue,
     Color.red,
     Color.green,

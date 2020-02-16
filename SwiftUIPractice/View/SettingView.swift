@@ -11,7 +11,7 @@ import Foundation
 
 struct SettingView: View {
     @Binding var showContent: Bool
-    @Binding var backgroundColor: Color
+    @Binding var themeColor: Color
     
     @EnvironmentObject var userData: UserData
 
@@ -28,8 +28,8 @@ struct SettingView: View {
                             .frame(width: 80)
                         Divider()
                         
-                        Picker("Background Color", selection: $backgroundColor.animation()) {
-                            ForEach(BackgroundColors, id: \.self) { color in
+                        Picker("Theme Color", selection: $themeColor.animation()) {
+                            ForEach(ThemeColors, id: \.self) { color in
                                 Text(DescriptionFromColor(color))
                             }
                         }
@@ -44,7 +44,7 @@ struct SettingView: View {
 struct SettingView_Previews: PreviewProvider {
     static var previews: some View {
         SettingView(showContent: .constant(false),
-                    backgroundColor: .constant(.blue))
+                    themeColor: .constant(.blue))
         .environmentObject(UserData())
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State fileprivate var showContent: Bool = false
-    @State fileprivate var themeColor: Color = BackgroundColors.first!
+    @State fileprivate var themeColor: Color = ThemeColors.first!
     @State fileprivate var toggleProfileOn: Bool = false
     @State fileprivate var selectedCategory: String = Categories.allCases.map {
         $0.rawValue
@@ -31,6 +31,24 @@ struct ContentView: View {
     var body: some View {
         NavigationView {
             VStack(spacing: 0) {
+                VStack {
+                    Group {
+                        Text("1")
+                        Text("2")
+                        Text("3")
+                        Text("4")
+                        Text("5")
+                    }
+                    
+                    Group {
+                        Text("6")
+                        Text("7")
+                        Text("8")
+                        Text("9")
+                        Text("10")
+                        Text("11")
+                    }
+                }
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(alignment: .center) {
                         ForEach(categories, id: \.self) { (id) -> Button<Text> in
@@ -50,7 +68,7 @@ struct ContentView: View {
                 .foregroundColor(.white)
 
                 SettingView(showContent: $showContent,
-                            backgroundColor: $themeColor)
+                            themeColor: $themeColor)
                     .frame(height: 140)
                 
                 
